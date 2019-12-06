@@ -1,0 +1,15 @@
+body {
+  align-content: center;
+}
+
+#container{
+  text-align: center;
+}
+
+#gameCanvas {
+  background-image: url("images/grassTrim.png");
+  background-repeat: no-repeat;
+  display: inline;
+  margin-left: 5em;
+  margin-top: 5em;
+}
