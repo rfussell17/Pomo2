@@ -1,5 +1,6 @@
 body {
   align-content: center;
+  background-color: rgb(80, 31, 31);
   background-image: url(images/dirt.jpg);
   background-repeat: repeat;
   text-align: center;
@@ -10,13 +11,26 @@ body {
   text-align: center;
 }
 
-#gameCanvas {
-  background-image: url("images/grassTrim.png");
-  background-repeat: no-repeat;
-  display: inline;
-  margin-left: 5em;
+
+/*table {
+  background-color: green;
+  text-align: center;
+  border: 1px solid grey;
+  position: absolute;
+  left: 173px;
+  top: 98px;
+  border-spacing: 0px;
+  margin-left: 26em;
 }
 
+
+td {
+  width: 70px;
+  height: 70px;
+  border: 1px solid grey;
+}
+*/
+
 h2 {
-  margin-top: 3em;
+  margin-top: 2em;
 }
