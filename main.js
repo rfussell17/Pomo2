@@ -13,29 +13,27 @@ window.onload = function(){
   setInterval(draw, 5);
   canvas = document.getElementById("gameCanvas");
   canvasContext = canvas.getContext('2d');
-  //background = document.getElementById("images/grass");
 
-  let fps = 30;
+  let fps = 20;
   setInterval(function(){
     draw();
   }, 1000/fps);
 
-  function onkeydown(e) {
+  function keydown(e) {
     if(e.keyCode==39){
-      snakeHeadX = snakeHeadX + 5;
+      snakeHeadX = snakeHeadX + 3;
     }
     if(e.keyCode==37){
-      snakeHeadX = snakeHeadX - 5;
+      snakeHeadX = snakeHeadX - 3;
     }
     if(e.keyCode==40){
-      snakeHeadY = snakeHeadY + 5;
+      snakeHeadY = snakeHeadY + 3;
     }
     if(e.keyCode==38){
-      snakeHeadY = snakeHeadY - 5;
+      snakeHeadY = snakeHeadY - 3;
     }
-    fillRect();
   }
-  window.addEventListener("keydown", onkeydown);
+  window.addEventListener("keydown", keydown);
 }
 
 
