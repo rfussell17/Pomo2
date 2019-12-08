@@ -7,17 +7,19 @@ let speedX = 5;
 let snakeHeadY = 80;
 let speedY = 5;
 let stop = 0;
+let fps = 20;
+
 
 
 window.onload = function(){
 console.log("onload function")
 
-  let fps = 20;
-  
+
+
   setInterval(function(){
     draw();
-    move();
   }, 1000/fps);
+  move();
 
   canvas = document.getElementById("gameCanvas");
   canvasContext = canvas.getContext('2d');
@@ -29,18 +31,19 @@ console.log("onload function")
 function move(){
   console.log("move function")
   function keydown(e) {
+
     console.log(" keydown function")
     if(e.keyCode==39){
-      snakeHeadX = snakeHeadX + 3;
+      snakeHeadX++;
     }
     if(e.keyCode==37){
-      snakeHeadX = snakeHeadX - 3;
+      snakeHeadX--;
     }
     if(e.keyCode==40){
-      snakeHeadY = snakeHeadY + 3;
+      snakeHeadY++;
     }
     if(e.keyCode==38){
-      snakeHeadY = snakeHeadY - 3;
+      snakeHeadY--;
     }
   }
   window.addEventListener("keydown", keydown);
@@ -54,6 +57,7 @@ function draw(){
   colorHead(snakeHeadX,snakeHeadY,30,50,'yellow');
   //colorBody(bodyX, bodyY, 10, 'red')
   console.log("draw function")
+  
 }
 
 function colorBody(centerX, centerY, radius, drawColor){
