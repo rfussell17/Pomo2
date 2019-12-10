@@ -17,8 +17,6 @@
   let stop = 0;
   let fps = 20;
 
-  let newApple = Math.floor(Math.random(foodY,foodX));
-
   window.onload = function() {
     document.addEventListener("keydown", keys);
     setInterval(move, 1000 / fps);
@@ -64,11 +62,11 @@
       snakeY + speedY < body) {
       speedY = stop;
     }
-    if(snakeX + speedY == foodX){
-      foodX = newApple;
+    if(snakeY + speedY == foodX){
+      foodX = Math.floor(Math.random());
     }
-    if(snakeY + speedY == foodY){
-      foodY = newApple;
+    if(snakeX + speedX == foodY){
+      foodY = Math.floor(Math.random());
     }
 
   }
