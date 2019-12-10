@@ -14,14 +14,14 @@
   let speedY = 0;
 
   let stop = 0;
-  let fps = 15;
+  let fps = 80;
 
   let newScore = document.getElementById("newScore");
   let highScore = document.getElementById("highScore");
 
   window.onload = function() {
     document.addEventListener("keydown", keys);
-    setInterval(move, 1000 / fps);
+    setInterval(move, 500/ fps);
   };
 
   function move() {
@@ -34,23 +34,23 @@
     switch (e.keyCode) {
       case 37:
         console.log("left");
-        speedX = -10;
+        speedX--;
         speedY = 0;
         break;
       case 38:
         console.log("up");
         speedX = 0;
-        speedY = -10;
+        speedY--;
         break;
       case 39:
         console.log("right");
-        speedX = 10;
+        speedX++;
         speedY = 0;
         break;
       case 40:
         console.log("down");
         speedX = 0;
-        speedY = 10;
+        speedY++
         break;
     }
   }
@@ -65,16 +65,15 @@
       snakeY + speedY < 0) {
       speedY = stop;
     }
-    if(snakeY + speedY == foodX){
+    if(snakeY + speedY == foodY){
       console.log("food eaten from top or bottom")
       newScore++;
       highScore++;
     }
-    if(snakeX + speedX == foodY){
+    if(snakeX + speedX == foodX){
       newScore++;
       highScore++;
     }
-
   }
 
 
@@ -85,7 +84,7 @@
     colorIn(0, 0, CANVAS.width, CANVAS.height, "green");
 
     //apple
-    colorIn(foodX, foodY, 15, 15, "red"); 
+    colorIn(foodX, foodY, body/2, body/2, "red"); 
 
     //head of snake
     colorIn(snakeX, snakeY, body, body, "yellow");
@@ -95,6 +94,5 @@
   function colorIn(leftX, topY, width, height, color) {
     CONTEXT.fillStyle = color;
     CONTEXT.fillRect(leftX, topY, width, height);
-
   }
 })();
