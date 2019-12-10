@@ -14,8 +14,8 @@ let snakeY = 280;
 let foodX = 10;
 let foodY = 10;
 
-let speedX = 6;
-let speedY = 6;
+let speedX = 0;
+let speedY = 0;
 
 let stop = 0;
 let fps = 30;
@@ -27,7 +27,7 @@ window.onload = function() {
 
 function move(){
   snakeX+=speedX;
-  speedY+=speedY
+  snakeY+=speedY
   draw();
   if(snakeX == CANVAS.width){
     snakeX = stop;
@@ -47,7 +47,7 @@ function keys(e) {
     case 38:
       console.log("up")
       speedX= 0;
-      speedY+= 6;
+      speedY= -6;
       break;
     case 39:
       console.log("right")
@@ -57,7 +57,7 @@ function keys(e) {
     case 40:
       console.log("down")
       speedX= 0;
-      speedY+=6;
+      speedY= 6;
       break;
   }
 }
