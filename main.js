@@ -1,4 +1,5 @@
 (function() {
+
   const CANVAS = document.getElementById("gameCanvas");
   const context = CANVAS.getContext("2d");
 
@@ -7,8 +8,8 @@
   let snakeX = 400;
   let snakeY = 280;
 
-  let foodX = 10;
-  let foodY = 10;
+  let foodX = 100;
+  let foodY = 100;
 
   let speedX = 0;
   let speedY = 0;
@@ -16,8 +17,7 @@
   let stop = 0;
   let fps = 20;
 
-  let apple = 500;
-  let appleLocation = Math.floor(Math.random(apple));
+  let newApple = Math.floor(Math.random(foodY,foodX));
 
   window.onload = function() {
     document.addEventListener("keydown", keys);
@@ -28,7 +28,6 @@
     snakeX += speedX;
     snakeY += speedY;
     draw();
-    checkWalls();
   }
 
   function keys(e) {
@@ -57,22 +56,23 @@
   }
 
   function checkWalls(){
-    if (snakeX == CANVAS.width) {
-      snakeX = stop;
+    if(snakeX + speedX > CANVAS.width-body ||
+      snakeX + speedX < body){
+      speedX = stop;
     }
-    if (snakeY == CANVAS.height) {
-      snakeY = stop;
+    if (snakeY + speedY > CANVAS.height-body ||
+      snakeY + speedY < body) {
+      speedY = stop;
     }
+    if(snakeX + speedY == foodX){
+      foodX = newApple;
+    }
+    if(snakeY + speedY == foodY){
+      foodY = newApple;
+    }
+
   }
 
-  function appleFunc(){
-    if(snakeX == appleLocation){
-      snakeX.width = snakeX.width + body;
-    }
-    if(snakeY == appleLocation){
-      snakeX.width = snakeX.width + body;
-    }
-  }
 
 
 
@@ -85,12 +85,12 @@
 
     //head of snake
     colorIn(snakeX, snakeY, body, body, "yellow");
-
-    appleFunc();
+    checkWalls();
   }
 
   function colorIn(leftX, topY, width, height, color) {
     context.fillStyle = color;
     context.fillRect(leftX, topY, width, height);
+
   }
 })();
