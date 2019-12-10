@@ -14,14 +14,14 @@
   let speedY = 0;
 
   let stop = 0;
-  let fps = 80;
+  let fps = 120;
 
   let newScore = document.getElementById("newScore");
   let highScore = document.getElementById("highScore");
 
   window.onload = function() {
     document.addEventListener("keydown", keys);
-    setInterval(move, 500/ fps);
+    setInterval(move, 1000/ fps);
   };
 
   function move() {
@@ -56,21 +56,27 @@
   }
 
   function checkWalls(){
+    //checks if top or bottom wall is hit
     if(snakeX + speedX > CANVAS.width-body ||
       snakeX + speedX < 0){
       speedX = stop;
-
     }
+    //checks if side walls are hit
     if (snakeY + speedY > CANVAS.height-body ||
       snakeY + speedY < 0) {
       speedY = stop;
     }
-    if(snakeY + speedY == foodY){
-      console.log("food eaten from top or bottom")
+
+    
+    //hopefully checks if snake hits apple, not tested
+    if(snakeY + speedY == foodY ||
+       snakeY + speedY == foodX){
       newScore++;
       highScore++;
     }
-    if(snakeX + speedX == foodX){
+    //hopefully checks if snake hits apple, not tested
+    if(snakeX + speedX == foodX ||
+       snakeX + speedX == foodY){
       newScore++;
       highScore++;
     }
