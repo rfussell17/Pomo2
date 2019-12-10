@@ -1,35 +1,77 @@
+
+(function(){
+
 const CANVAS = document.getElementById("gameCanvas");
 const context = CANVAS.getContext("2d");
 
 const scale = 25;
-const rows = CANVAS.height / scale;
-const columns = CANVAS.width / scale;
+const row = CANVAS.height / scale;
+const column = CANVAS.width / scale;
 
-let snakeHeadX = scale * 1;
-let snakeHeadY = 0;
+let snakeX = 400;
+let snakeY = 280;
 
-let speedX = 0;
-let speedY = 0;
+let foodX = 10;
+let foodY = 10;
+
+let speedX = 6;
+let speedY = 6;
 
 let stop = 0;
 let fps = 30;
 
-let background;
-
 window.onload = function() {
-  console.log("onload function");
+  document.addEventListener('keydown', keys);
+  setInterval(move, 1000/fps);
+}
 
-  setInterval(function() {
-    move();
-    draw();
-  }, 250);
-};
+function move(){
+  snakeX+=speedX;
+  speedY+=speedY
+  draw();
+  if(snakeX == CANVAS.width){
+    snakeX = stop;
+  }
+  if(snakeY == CANVAS.height){
+    snakeY = stop;
+  }
+}
+
+function keys(e) {
+  switch(e.keyCode){
+    case 37:
+      console.log("left")
+      speedX= -6 ;
+      speedY= 0;
+      break;
+    case 38:
+      console.log("up")
+      speedX= 0;
+      speedY+= 6;
+      break;
+    case 39:
+      console.log("right")
+      speedX= 6;
+      speedY= 0;
+      break;
+    case 40:
+      console.log("down")
+      speedX= 0;
+      speedY+=6;
+      break;
+  }
+}
+
+
 
 function draw() {
   //background canvas
   colorIn(0, 0, CANVAS.width, CANVAS.height, "green");
   //head of snake
-  colorIn(snakeHeadX, snakeHeadY, scale, scale, "yellow");
+  colorIn(snakeX, snakeY, scale, scale, "yellow");
+
+ //apple
+  colorIn(foodX, foodY, 10, 10, "red");
 }
 
 function colorIn(leftX, topY, width, height, color) {
@@ -37,30 +79,7 @@ function colorIn(leftX, topY, width, height, color) {
   context.fillRect(leftX, topY, width, height);
 }
 
-function move() {
-  window.addEventListener("keydown", e => {
-    snakeHeadX = speedX;
-    snakeHeadY = speedY;
 
-    if (e.keyCode == 39) {
-      speedX = scale * 1;
-      speedY = 0;
-      console.log("right");
-    }
-    if (e.keyCode == 37) {
-      speedX = -scale * 1;
-      speedY = 0;
-      console.log("left");
-    }
-    if (e.keyCode == 40) {
-      speedX = 0;
-      speedY = scale * 1;
-      console.log("down");
-    }
-    if (e.keyCode == 38) {
-      speedX = 0;
-      speedY = -scale * 1;
-      console.log("up");
-    }
-  });
-}
+
+
+})();
