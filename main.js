@@ -66,8 +66,11 @@
   }
 
   function appleFunc(){
-    if(snakeX == appleLocation || snakeY == appleLocation){
-      snakeX.width = snakeX.width + 25;
+    if(snakeX == appleLocation){
+      snakeX.width = snakeX.width + body;
+    }
+    if(snakeY == appleLocation){
+      snakeX.width = snakeX.width + body;
     }
   }
 
@@ -81,7 +84,7 @@
     colorIn(foodX, foodY, 15, 15, "red"); 
 
     //head of snake
-    colorIn(snakeX, snakeY, 25, 25, "yellow");
+    colorIn(snakeX, snakeY, body, body, "yellow");
 
     appleFunc();
   }
