@@ -1,85 +1,93 @@
+(function() {
+  const CANVAS = document.getElementById("gameCanvas");
+  const context = CANVAS.getContext("2d");
 
-(function(){
+  const body = 25;
 
-const CANVAS = document.getElementById("gameCanvas");
-const context = CANVAS.getContext("2d");
+  let snakeX = 400;
+  let snakeY = 280;
 
-const scale = 25;
-const row = CANVAS.height / scale;
-const column = CANVAS.width / scale;
+  let foodX = 10;
+  let foodY = 10;
 
-let snakeX = 400;
-let snakeY = 280;
+  let speedX = 0;
+  let speedY = 0;
 
-let foodX = 10;
-let foodY = 10;
+  let stop = 0;
+  let fps = 20;
 
-let speedX = 0;
-let speedY = 0;
+  let apple = 500;
+  let appleLocation = Math.floor(Math.random(apple));
 
-let stop = 0;
-let fps = 30;
+  window.onload = function() {
+    document.addEventListener("keydown", keys);
+    setInterval(move, 1000 / fps);
+  };
 
-window.onload = function() {
-  document.addEventListener('keydown', keys);
-  setInterval(move, 1000/fps);
-}
-
-function move(){
-  snakeX+=speedX;
-  snakeY+=speedY
-  draw();
-  if(snakeX == CANVAS.width){
-    snakeX = stop;
+  function move() {
+    snakeX += speedX;
+    snakeY += speedY;
+    draw();
+    checkWalls();
   }
-  if(snakeY == CANVAS.height){
-    snakeY = stop;
+
+  function keys(e) {
+    switch (e.keyCode) {
+      case 37:
+        console.log("left");
+        speedX = -5;
+        speedY = 0;
+        break;
+      case 38:
+        console.log("up");
+        speedX = 0;
+        speedY = -5;
+        break;
+      case 39:
+        console.log("right");
+        speedX = 5;
+        speedY = 0;
+        break;
+      case 40:
+        console.log("down");
+        speedX = 0;
+        speedY = 5;
+        break;
+    }
   }
-}
 
-function keys(e) {
-  switch(e.keyCode){
-    case 37:
-      console.log("left")
-      speedX= -6 ;
-      speedY= 0;
-      break;
-    case 38:
-      console.log("up")
-      speedX= 0;
-      speedY= -6;
-      break;
-    case 39:
-      console.log("right")
-      speedX= 6;
-      speedY= 0;
-      break;
-    case 40:
-      console.log("down")
-      speedX= 0;
-      speedY= 6;
-      break;
+  function checkWalls(){
+    if (snakeX == CANVAS.width) {
+      snakeX = stop;
+    }
+    if (snakeY == CANVAS.height) {
+      snakeY = stop;
+    }
   }
-}
+
+  function appleFunc(){
+    if(snakeX == appleLocation || snakeY == appleLocation){
+      snakeX.width = snakeX.width + 25;
+    }
+  }
 
 
 
-function draw() {
-  //background canvas
-  colorIn(0, 0, CANVAS.width, CANVAS.height, "green");
-  //head of snake
-  colorIn(snakeX, snakeY, scale, scale, "yellow");
+  function draw() {
+    //background canvas
+    colorIn(0, 0, CANVAS.width, CANVAS.height, "green");
 
- //apple
-  colorIn(foodX, foodY, 10, 10, "red");
-}
+    //apple
+    colorIn(foodX, foodY, 15, 15, "red"); 
 
-function colorIn(leftX, topY, width, height, color) {
-  context.fillStyle = color;
-  context.fillRect(leftX, topY, width, height);
-}
+    //head of snake
+    colorIn(snakeX, snakeY, 25, 25, "yellow");
 
+    appleFunc();
+  }
 
-
-
+  function colorIn(leftX, topY, width, height, color) {
+    context.fillStyle = color;
+    context.fillRect(leftX, topY, width, height);
+  }
 })();
