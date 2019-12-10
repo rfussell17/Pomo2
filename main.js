@@ -1,10 +1,9 @@
 (function() {
 
   const CANVAS = document.getElementById("gameCanvas");
-  const context = CANVAS.getContext("2d");
+  const CONTEXT = CANVAS.getContext("2d");
 
-  const body = 25;
-
+  let body = 20;
   let snakeX = 400;
   let snakeY = 280;
 
@@ -15,7 +14,10 @@
   let speedY = 0;
 
   let stop = 0;
-  let fps = 20;
+  let fps = 15;
+
+  let newScore = document.getElementById("newScore");
+  let highScore = document.getElementById("highScore");
 
   window.onload = function() {
     document.addEventListener("keydown", keys);
@@ -32,41 +34,45 @@
     switch (e.keyCode) {
       case 37:
         console.log("left");
-        speedX = -5;
+        speedX = -10;
         speedY = 0;
         break;
       case 38:
         console.log("up");
         speedX = 0;
-        speedY = -5;
+        speedY = -10;
         break;
       case 39:
         console.log("right");
-        speedX = 5;
+        speedX = 10;
         speedY = 0;
         break;
       case 40:
         console.log("down");
         speedX = 0;
-        speedY = 5;
+        speedY = 10;
         break;
     }
   }
 
   function checkWalls(){
     if(snakeX + speedX > CANVAS.width-body ||
-      snakeX + speedX < body){
+      snakeX + speedX < 0){
       speedX = stop;
+
     }
     if (snakeY + speedY > CANVAS.height-body ||
-      snakeY + speedY < body) {
+      snakeY + speedY < 0) {
       speedY = stop;
     }
     if(snakeY + speedY == foodX){
-      foodX = Math.floor(Math.random());
+      console.log("food eaten from top or bottom")
+      newScore++;
+      highScore++;
     }
     if(snakeX + speedX == foodY){
-      foodY = Math.floor(Math.random());
+      newScore++;
+      highScore++;
     }
 
   }
@@ -87,8 +93,8 @@
   }
 
   function colorIn(leftX, topY, width, height, color) {
-    context.fillStyle = color;
-    context.fillRect(leftX, topY, width, height);
+    CONTEXT.fillStyle = color;
+    CONTEXT.fillRect(leftX, topY, width, height);
 
   }
 })();
