@@ -4,14 +4,7 @@
   const CONTEXT = CANVAS.getContext("2d");
   
   let body = 20;
-
-  let snakeX = 410;
-  let snakeY = 400;
-  let snakeBody = 
-   [{x: 400, y: 400},
-   {x: 390, y: 400},
-   {x: 380, y: 400},
-   {x: 370, y: 400},];
+  let snake =[{x:300,y:290}];
 
   let i = 0;
 
@@ -31,17 +24,11 @@
   };
 
 
- let grid = 20;
-
-
-
 
 
   function move() {
-    snakeX += speed.x;
-    snakeBody[i].x += speed.x;
-    snakeY += speed.y;
-    snakeBody[i].y += speed.y;
+    snake[i].x += speed.x;
+    snake[i].y += speed.y;
     draw();
   }
 
@@ -72,26 +59,26 @@
 
   function checkWalls(){
     //checks if top or bottom wall is hit
-    if(snakeX + speed.x > CANVAS.width-body ||
-      snakeX + speed.x < 0){
+    if(snake[i].x + speed.x > CANVAS.width-body ||
+      snake[i].x + speed.x < 0){
       speed.x = stop;
     }
     //checks if side walls are hit
-    if (snakeY + speed.y > CANVAS.height-body ||
-      snakeY + speed.y < 0) {
+    if (snake[i].y + speed.y > CANVAS.height-body ||
+      snake[i].y + speed.y < 0) {
       speed.y = stop;
     }
 
 
     //hopefully checks if snake hits apple, not tested
-    if(snakeY + speed.y == food.y ||
-       snakeY + speed.y == food.x){
+    if(snake[i].y + speed.y == food.y ||
+       snake[i].y + speed.y == food.x){
       newScore++;
       highScore++;
     }
     //hopefully checks if snake hits apple, not tested
-    if(snakeX + speed.x == food.x ||
-       snakeX + speed.x == food.y){
+    if(snake[i].x + speed.x == food.x ||
+       snake[i].x + speed.x == food.y){
       newScore++;
       highScore++;
     }
@@ -108,12 +95,7 @@
     colorIn(food.x, food.y, body/2, body/2, "red"); 
 
     //head of snake
-    colorIn(snakeX, snakeY, body * body, body, "yellow");
-    colorIn(snakeBody[i].x, snakeBody[i].y, body, body, "yellow");
-    colorIn(snakeBody[i].x, snakeBody[i].y, body, body, "yellow");
-    colorIn(snakeBody[i].x, snakeBody[i].y, body, body, "yellow");
-    colorIn(snakeBody[i].x, snakeBody[i].y, body, body, "yellow");
-    //snake body add-on
+    colorIn(snake[i].x, snake[i].y, body, body, "yellow");
 
     checkWalls();
   }
