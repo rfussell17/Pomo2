@@ -8,11 +8,13 @@
   
 
   let body = 20;
-  let snake = [{x:400,y:400},
-               {x:390,y:400},
-               {x:380,y:400},
-               {x:370,y:400},
-               {x:360,y:400}];
+
+  let snake = 
+   [{x: 400, y: 400},
+   {x: 390, y: 400},
+   {x: 380, y: 400},
+   {x: 370, y: 400},
+   {x: 360, y: 400}];
 
   let i = 0;
 
@@ -101,6 +103,11 @@
 
     //head of snake
     colorIn(snake[i].x, snake[i].y, body, body, "yellow");
+
+    //snake body add-on
+    colorIn()
+
+
     checkWalls();
   }
 
