@@ -3,9 +3,11 @@
   const CANVAS = document.getElementById("gameCanvas");
   const CONTEXT = CANVAS.getContext("2d");
 
+  
+
   let body = 20;
-  let snakeX = 400;
-  let snakeY = 280;
+  let snake = [{x:400,y:200}];
+  let i = 0;
 
   let foodX = 100;
   let foodY = 100;
@@ -25,8 +27,8 @@
   };
 
   function move() {
-    snakeX += speedX;
-    snakeY += speedY;
+    snake[i].x += speedX;
+    snake[i].y += speedY;
     draw();
   }
 
@@ -57,26 +59,26 @@
 
   function checkWalls(){
     //checks if top or bottom wall is hit
-    if(snakeX + speedX > CANVAS.width-body ||
-      snakeX + speedX < 0){
+    if(snake[i].x + speedX > CANVAS.width-body ||
+      snake[i].x + speedX < 0){
       speedX = stop;
     }
     //checks if side walls are hit
-    if (snakeY + speedY > CANVAS.height-body ||
-      snakeY + speedY < 0) {
+    if (snake[i].y + speedY > CANVAS.height-body ||
+      snake[i].y + speedY < 0) {
       speedY = stop;
     }
 
-    
+
     //hopefully checks if snake hits apple, not tested
-    if(snakeY + speedY == foodY ||
-       snakeY + speedY == foodX){
+    if(snake[i].y + speedY == foodY ||
+       snake[i].y + speedY == foodX){
       newScore++;
       highScore++;
     }
     //hopefully checks if snake hits apple, not tested
-    if(snakeX + speedX == foodX ||
-       snakeX + speedX == foodY){
+    if(snake[i].x + speedX == foodX ||
+       snake[i].x + speedX == foodY){
       newScore++;
       highScore++;
     }
@@ -93,7 +95,7 @@
     colorIn(foodX, foodY, body/2, body/2, "red"); 
 
     //head of snake
-    colorIn(snakeX, snakeY, body, body, "yellow");
+    colorIn(snake[i].x, snake[i].y, body, body, "yellow");
     checkWalls();
   }
 
