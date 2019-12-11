@@ -1,16 +1,22 @@
 (function() {
 
+  const DEBUG = true;
+
   const CANVAS = document.getElementById("gameCanvas");
   const CONTEXT = CANVAS.getContext("2d");
 
   
 
   let body = 20;
-  let snake = [{x:400,y:200}];
+  let snake = [{x:400,y:400},
+               {x:390,y:400},
+               {x:380,y:400},
+               {x:370,y:400},
+               {x:360,y:400}];
+
   let i = 0;
 
-  let foodX = 100;
-  let foodY = 100;
+  let food = {x:300,y:200};
 
   let speedX = 0;
   let speedY = 0;
@@ -71,14 +77,14 @@
 
 
     //hopefully checks if snake hits apple, not tested
-    if(snake[i].y + speedY == foodY ||
-       snake[i].y + speedY == foodX){
+    if(snake[i].y + speedY == food.y ||
+       snake[i].y + speedY == food.x){
       newScore++;
       highScore++;
     }
     //hopefully checks if snake hits apple, not tested
-    if(snake[i].x + speedX == foodX ||
-       snake[i].x + speedX == foodY){
+    if(snake[i].x + speedX == food.x ||
+       snake[i].x + speedX == food.y){
       newScore++;
       highScore++;
     }
@@ -92,7 +98,7 @@
     colorIn(0, 0, CANVAS.width, CANVAS.height, "green");
 
     //apple
-    colorIn(foodX, foodY, body/2, body/2, "red"); 
+    colorIn(food.x, food.y, body/2, body/2, "red"); 
 
     //head of snake
     colorIn(snake[i].x, snake[i].y, body, body, "yellow");
