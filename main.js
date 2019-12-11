@@ -16,10 +16,9 @@
 
   let i = 0;
 
-  let food = {x:300,y:200};
+  let food = {x:400,y:300};
 
-  let speedX = 0;
-  let speedY = 0;
+  let speed = {x:0,y:0};
 
   let stop = 0;
   let fps = 120;
@@ -33,8 +32,8 @@
   };
 
   function move() {
-    snake[i].x += speedX;
-    snake[i].y += speedY;
+    snake[i].x += speed.x;
+    snake[i].y += speed.y;
     draw();
   }
 
@@ -42,49 +41,49 @@
     switch (e.keyCode) {
       case 37:
         console.log("left");
-        speedX--;
-        speedY = 0;
+        speed.x--;
+        speed.y = 0;
         break;
       case 38:
         console.log("up");
-        speedX = 0;
-        speedY--;
+        speed.x = 0;
+        speed.y--;
         break;
       case 39:
         console.log("right");
-        speedX++;
-        speedY = 0;
+        speed.x++;
+        speed.y = 0;
         break;
       case 40:
         console.log("down");
-        speedX = 0;
-        speedY++
+        speed.x = 0;
+        speed.y++
         break;
     }
   }
 
   function checkWalls(){
     //checks if top or bottom wall is hit
-    if(snake[i].x + speedX > CANVAS.width-body ||
-      snake[i].x + speedX < 0){
-      speedX = stop;
+    if(snake[i].x + speed.x > CANVAS.width-body ||
+      snake[i].x + speed.x < 0){
+      speed.x = stop;
     }
     //checks if side walls are hit
-    if (snake[i].y + speedY > CANVAS.height-body ||
-      snake[i].y + speedY < 0) {
-      speedY = stop;
+    if (snake[i].y + speed.y > CANVAS.height-body ||
+      snake[i].y + speed.y < 0) {
+      speed.y = stop;
     }
 
 
     //hopefully checks if snake hits apple, not tested
-    if(snake[i].y + speedY == food.y ||
-       snake[i].y + speedY == food.x){
+    if(snake[i].y + speed.y == food.y ||
+       snake[i].y + speed.y == food.x){
       newScore++;
       highScore++;
     }
     //hopefully checks if snake hits apple, not tested
-    if(snake[i].x + speedX == food.x ||
-       snake[i].x + speedX == food.y){
+    if(snake[i].x + speed.x == food.x ||
+       snake[i].x + speed.x == food.y){
       newScore++;
       highScore++;
     }
