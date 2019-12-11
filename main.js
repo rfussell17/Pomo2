@@ -1,20 +1,17 @@
 (function() {
 
-  const DEBUG = true;
-
   const CANVAS = document.getElementById("gameCanvas");
   const CONTEXT = CANVAS.getContext("2d");
-
   
-
   let body = 20;
 
-  let snake = 
+  let snakeX = 410;
+  let snakeY = 400;
+  let snakeBody = 
    [{x: 400, y: 400},
    {x: 390, y: 400},
    {x: 380, y: 400},
-   {x: 370, y: 400},
-   {x: 360, y: 400}];
+   {x: 370, y: 400},];
 
   let i = 0;
 
@@ -33,9 +30,18 @@
     setInterval(move, 1000/ fps);
   };
 
+
+ let grid = 20;
+
+
+
+
+
   function move() {
-    snake[i].x += speed.x;
-    snake[i].y += speed.y;
+    snakeX += speed.x;
+    snakeBody[i].x += speed.x;
+    snakeY += speed.y;
+    snakeBody[i].y += speed.y;
     draw();
   }
 
@@ -66,26 +72,26 @@
 
   function checkWalls(){
     //checks if top or bottom wall is hit
-    if(snake[i].x + speed.x > CANVAS.width-body ||
-      snake[i].x + speed.x < 0){
+    if(snakeX + speed.x > CANVAS.width-body ||
+      snakeX + speed.x < 0){
       speed.x = stop;
     }
     //checks if side walls are hit
-    if (snake[i].y + speed.y > CANVAS.height-body ||
-      snake[i].y + speed.y < 0) {
+    if (snakeY + speed.y > CANVAS.height-body ||
+      snakeY + speed.y < 0) {
       speed.y = stop;
     }
 
 
     //hopefully checks if snake hits apple, not tested
-    if(snake[i].y + speed.y == food.y ||
-       snake[i].y + speed.y == food.x){
+    if(snakeY + speed.y == food.y ||
+       snakeY + speed.y == food.x){
       newScore++;
       highScore++;
     }
     //hopefully checks if snake hits apple, not tested
-    if(snake[i].x + speed.x == food.x ||
-       snake[i].x + speed.x == food.y){
+    if(snakeX + speed.x == food.x ||
+       snakeX + speed.x == food.y){
       newScore++;
       highScore++;
     }
@@ -102,14 +108,16 @@
     colorIn(food.x, food.y, body/2, body/2, "red"); 
 
     //head of snake
-    colorIn(snake[i].x, snake[i].y, body, body, "yellow");
-
+    colorIn(snakeX, snakeY, body * body, body, "yellow");
+    colorIn(snakeBody[i].x, snakeBody[i].y, body, body, "yellow");
+    colorIn(snakeBody[i].x, snakeBody[i].y, body, body, "yellow");
+    colorIn(snakeBody[i].x, snakeBody[i].y, body, body, "yellow");
+    colorIn(snakeBody[i].x, snakeBody[i].y, body, body, "yellow");
     //snake body add-on
-    colorIn()
-
 
     checkWalls();
   }
+
 
   function colorIn(leftX, topY, width, height, color) {
     CONTEXT.fillStyle = color;
