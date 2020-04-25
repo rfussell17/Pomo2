@@ -9,33 +9,27 @@
   </head>
 
   <body>
-    <div class="container">
-      <div class="radio">
+    <div id="container">
+      <div id="radio">
         <form>
           <label for="work">Work</label>
           <input
             type="radio"
-            class="workId"
+            id="workId"
             name="rad1"
             value="work"
             checked="true"
           />
 
           <label for="rest">Rest</label>
-          <input
-           type="radio"
-           class="restId" 
-           name="rad1" 
-           value="rest" 
-           />
-           
+          <input type="radio" id="restId" name="rad1" value="rest" />
         </form>
       </div>
-      <div class="timer">25:00</div>
+      <div id="timer">25:00</div>
       <div class="buttons">
-        <button class="start">Start</button>
-        <button class="stop">Stop</button>
-        <button class="reset">Reset</button>
+        <button id="start">Start</button>
+        <button id="stop">Stop</button>
+        <button id="reset">Reset</button>
       </div>
     </div>
     <script src="script.js"></script>
