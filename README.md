@@ -7,7 +7,7 @@ Follow this Pomodoro Timer during intense study sessions to prevent burnout and 
  Try it out! [Pomodoro Timer](https://rfussell17.github.io/pomodoro/)
 
  <br>
-<img src="pomo.jpg" height= 500  title="screenshot">
+<img src="images/pomo.jpg" height= 500  title="screenshot">
 
 ## Summary
 
