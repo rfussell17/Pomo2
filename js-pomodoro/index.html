@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Pomodoro</title>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="radio">
+        <form>
+          <label for="work">Work</label>
+          <input
+            type="radio"
+            class="workId"
+            name="rad1"
+            value="work"
+            checked="true"
+          />
+
+          <label for="rest">Rest</label>
+          <input
+           type="radio"
+           class="restId" 
+           name="rad1" 
+           value="rest" 
+           />
+           
+        </form>
+      </div>
+      <div class="timer">25:00</div>
+      <div class="buttons">
+        <button class="start">Start</button>
+        <button class="stop">Stop</button>
+        <button class="reset">Reset</button>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
