@@ -4,34 +4,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Snake Game</title>
     <link rel="stylesheet" href="style.css" />
-    <title>Pomodoro</title>
   </head>
-
   <body>
-    <div id="container">
-      <div id="radio">
-        <form>
-          <label for="work">Work</label>
-          <input
-            type="radio"
-            id="workId"
-            name="rad1"
-            value="work"
-            checked="true"
-          />
+    <h2>Current Score:<span id="newScore">0 </span></h2>
 
-          <label for="rest">Rest</label>
-          <input type="radio" id="restId" name="rad1" value="rest" />
-        </form>
-      </div>
-      <div id="timer">25:00</div>
-      <div class="buttons">
-        <button id="start">Start</button>
-        <button id="stop">Stop</button>
-        <button id="reset">Reset</button>
-      </div>
+
+    <div id="container">
+      <canvas id="gameCanvas" width="800" height="600"></canvas>
     </div>
-    <script src="script.js"></script>
+    <script src="main.js"></script>
   </body>
 </html>
