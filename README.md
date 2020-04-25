@@ -4,7 +4,7 @@
 
  <img src="images/frontend2.png"   title="HTML5 Powered">
 
- Try it out here: [Pomodoro Timer](https://rfussell17.github.io/pomodoro/)
+ Try it out! [Pomodoro Timer](https://rfussell17.github.io/pomodoro/)
 
 <br>
 
