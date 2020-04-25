@@ -1,6 +1,6 @@
-## Snake Game App
+## Pomodoro Timer
 
-Kill some time or sharpen your reaction time with this Snake Game.
+Follow this Pomodoro Timer during intense study sessions to prevent burnout and maximize your focused effort!
 
  <img src="images/frontend2.png"   title="HTML5 Powered">
 
