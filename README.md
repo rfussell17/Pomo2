@@ -1,18 +1,17 @@
- ## Pomodoro Timer
+## Snake Game App
 
- Follow this Pomodoro Timer during intense study sessions to prevent burnout and maximize your focused effort!  
+Kill some time or sharpen your reaction time with this Snake Game.
 
  <img src="images/frontend2.png"   title="HTML5 Powered">
 
- Try it out here: [Pomodoro Timer](https://rfussell17.github.io/pomodoro/)
+Link to working demo: [Snake Game](https://rfussell17.github.io/snake-game/)
 
-<br>
+ <br>
+<img src="images/snake.png" height= 500  title="screenshot">
 
-<img src="images/pomoCropped.png" height= 500  title="HTML5 Powered">
- 
+## Summary
 
-##  Summary
- This is my Pomodoro Timer project that is built with HTML, CSS and vanilla JS. No Libraries or Frameworks were used. The Timer has a Work mode (25 min) and a Rest mode (5 min). It has Start, Stop and Reset functions to allow more freedom with how the app is used.
+This is my version of the classic Snake Game App. It's built with HTML, CSS and vanilla JS. No Libraries or Frameworks were used. You can control the snake with the D-pad. When the snake eats the apple, the snake will grow and another apple will be randomly generated on the board. The game also keeps track of how many apples were eaten. 
 
 **Author**
 <br>
