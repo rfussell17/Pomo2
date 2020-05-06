@@ -4,7 +4,7 @@ Kill some time or sharpen your reaction time with this Snake Game.
 
  <img src="images/frontend2.png"   title="HTML5 Powered">
 
-Link to working demo: [Snake Game](https://rfussell17.github.io/snake-game/)
+Link to working demo: [Snake Game](https://rfussell17.github.io/Snake-Game/)
 
  <br>
 <img src="images/snake2.jpg" height= 500  title="screenshot">
