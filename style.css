@@ -1,120 +1,17 @@
-html {
-	overflow: hidden;
-	padding: 0px;
-  margin: 0px;
-}
-
 body {
-  height: 100vh;
-  background: linear-gradient(
-    to right bottom,
-    rgba(125, 169, 190, 0.8),
-    rgba(161, 161, 231, 0.8));
-  position: relative;
-  box-sizing: border-box;
-  font-family: "Lato", sans-serif;
-  font-weight: 600;
-  text-shadow: 0px 0px 15px #4e4e4e;
-  margin-bottom: 0;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-size: x-large;
+  align-content: center;
+  background-color: #606c38;
+  text-align: center;
 }
 
 #container {
-  border: 2px solid lightgrey;
-  height: 400px;
-  width: 400px;
-  background-color: lightgrey;
-  margin: 200px auto;
-  border-radius: 3rem;
-}
-
-#radio {
   text-align: center;
-  font-size: 30px;
-  margin: 50px;
 }
 
-#timer {
-  height: 0px;
-  margin-bottom: 65px;
-  margin-top: 20px;
-  color: rgb(59, 58, 61);
-  text-align: center;
-  font-size: 90px;
-  font-family: 'roboto';
-  font-weight: 500;
-}
-
-.buttons {
-  color: white;
-  margin-top: 90px;
-  margin-left: 50px;
-  display: inline-block;
-  border-radius: 10rem;
-}
-
-#start {
-  background-color: #4caf50;
-  color: white;
-  padding: 15px 30px;
-  align-content: center;
-  font-size: 15px;
-  border-radius: 5rem;
-}
-
-#stop {
-  background-color: #333231;
-  color: white;
-  padding: 15px 30px;
-  align-content: center;
-  font-size: 15px;
-  border-radius: 5rem;
-}
-
-#reset {
-  background-color: #008cba;
-  color: white;
-  padding: 15px 30px;
-  align-content: center;
-  font-size: 15px;
-  border-radius: 5rem;
-}
-
-#start:hover {
-  box-shadow: 0 10px 15px 0 rgba(0, 0, 0, 0.24),
-    0 17px 50px 0 rgba(0, 0, 0, 0.19);
-  transition-duration: 0.3s;
-  transform: translateY(-.2rem);
-    box-shadow: 0 1rem 2rem rgba(black,.2);
-}
-
-#start::after{
-  transform: scaleX(1.4) scaleY(1.6);
-  opacity: 0;
-}
-
-#stop:hover {
-  box-shadow: 0 10px 15px 0 rgba(0, 0, 0, 0.24),
-    0 17px 50px 0 rgba(0, 0, 0, 0.19);
-  transition-duration: 0.3s;
-  transform: translateY(-.2rem);
-    box-shadow: 0 1rem 2rem rgba(black,.2);
-}
-
-#stop::after{
-  transform: scaleX(1.4) scaleY(1.6);
-  opacity: 0;
-}
-
-
-#reset:hover {
-  box-shadow: 0 10px 15px 0 rgba(0, 0, 0, 0.24),
-    0 17px 50px 0 rgba(0, 0, 0, 0.19);
-  transition-duration: 0.3s;
-  transform: translateY(-.2rem);
-    box-shadow: 0 1rem 2rem rgba(black,.2);
-}
-
-#reset::after{
-  transform: scaleX(1.4) scaleY(1.6);
-  opacity: 0;
+#gameCanvas {
+  border: 0.25rem solid #bc6c25;
+  border-radius: 2%;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
